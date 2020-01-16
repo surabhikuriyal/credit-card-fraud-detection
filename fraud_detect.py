@@ -8,7 +8,7 @@ class_names = {0:'Not Fraud', 1:'Fraud'}
 print(df.Class.value_counts().rename(index = class_names))
 
 feature_names = df.iloc[:, 1:30].columns
-target = df.iloc[:1, 30: ].columns
+target = df.iloc[:, 30: ].columns
 
 data_features = df[feature_names]
 data_target = df[target]
@@ -36,7 +36,7 @@ tneg = confmat[1][0]
 
 recallScore = round(recall_score(y_test, pred), 2)
 # calculate and display metrics
-print(cmat)
+print(confmat)
 print( 'Accuracy of the model : '+ str(np.round(100*float(tpos+fneg)/float(tpos+fneg + fpos + tneg),2))+'%')
 print("Sensitivity/Recall for Model/correctly predicted positive observations to the all observations : {recall_score}".format(recall_score = recallScore))
 print("\n---MODEL CREATED---")
